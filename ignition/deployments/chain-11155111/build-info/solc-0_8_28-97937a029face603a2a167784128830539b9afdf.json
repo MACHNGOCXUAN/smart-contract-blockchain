@@ -1,0 +1,40 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-97937a029face603a2a167784128830539b9afdf",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "compilerType": "solc",
+  "userSourceNameMap": {
+    "contracts/RentalContractRegistry.sol": "project/contracts/RentalContractRegistry.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/RentalContractRegistry.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract RentalContractRegistry {\r\n\r\n    struct ContractData {\r\n        bytes32 contractHash;\r\n        bool exists;\r\n    }\r\n\r\n    mapping(string => ContractData) public contracts;\r\n\r\n    function registerContract(string memory contractId, bytes32 contractHash) public {\r\n        require(!contracts[contractId].exists, \"Already exists\");\r\n\r\n        contracts[contractId] = ContractData({\r\n            contractHash: contractHash,\r\n            exists: true\r\n        });\r\n    }\r\n}"
+      }
+    }
+  }
+}

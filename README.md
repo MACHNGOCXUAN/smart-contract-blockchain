@@ -207,3 +207,6 @@ Contract này đóng vai trò:
 > “Sổ cái lưu trữ hash của hợp đồng thuê, đảm bảo tính minh bạch và không thể thay đổi”
 
 ---
+
+
+npx hardhat run scripts/deploy.ts --network sepolia
